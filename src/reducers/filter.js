@@ -1,6 +1,3 @@
-import Immutable from 'immutable';
-
-
 const filter = (state = 'ALL', action) => {
   switch(action.type) {
     case 'SET_FILTER':
