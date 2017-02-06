@@ -6,7 +6,14 @@ const defaultState = Immutable.List();
 const todos = (state = defaultState, action) => {
   switch(action.type) {
     case 'ADD_TODO':
-      // Return previous List + a new Map added with added info
+      return state.push(
+        Immutable.Map({
+          id: action.id,
+          text: action.text,
+          completed: false
+        })
+      )
+      console.log(state);
     default:
       return state;
   }
