@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.toJS()
+    todos: state.todos.toJS()
   }
 }
 
