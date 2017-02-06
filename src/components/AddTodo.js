@@ -5,7 +5,7 @@ import React from 'react';
 
 const AddTodo = ({addToList}) => {
   addToList("feed doggos");
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const todo = e.target.todo.value;
@@ -15,7 +15,7 @@ const AddTodo = ({addToList}) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form style={{marginBottom: '20px'}} onSubmit={handleSubmit}>
         <input name="todo" type="text"/>
         <button type="submit">Add</button>
       </form>
