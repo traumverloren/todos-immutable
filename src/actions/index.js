@@ -7,16 +7,16 @@ export const addTodo = (text) => {
   }
 }
 
-export const setFilter = (filter) => {
-  return {
-    type: 'SET_FILTER',
-    filter
-  }
-}
-
 export const toggleTodo = (id) => {
   return {
     type: 'TOGGLE_TODO',
     id
+  }
+}
+
+export const setFilter = (filter) => {
+  return {
+    type: 'SET_FILTER',
+    filter
   }
 }
