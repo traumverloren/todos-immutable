@@ -12,7 +12,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
       dispatch(setFilter(ownProps.filter))
-
     }
   }
 }
