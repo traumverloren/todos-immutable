@@ -4,6 +4,8 @@ import React from 'react';
 // only needs to dispatch the addToList action.
 
 const AddTodo = ({addToList}) => {
+  addToList("feed doggos");
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const todo = e.target.todo.value;
