@@ -13,7 +13,6 @@ const todos = (state = defaultState, action) => {
           completed: false
         })
       )
-      console.log(state);
     default:
       return state;
   }

@@ -1,16 +1,24 @@
 import React from 'react';
 
-const AddTodo = () => {
+// add a todo to the list. doesn't need any state passed down.
+// only needs to dispatch the addToList action.
+
+const AddTodo = ({addToList}) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const todo = e.target.todo.value;
+    addToList(todo);
+    e.target.reset();
+  }
+
   return (
     <div>
-      <form>
-        <input name="todo" type="text" placeholder="Add a todo"></input>
-        <button type="submit">Submit</button>
+      <form onSubmit={handleSubmit}>
+        <input name="todo" type="text"/>
+        <button type="submit">Add</button>
       </form>
     </div>
   )
-
 }
-
 
 export default AddTodo

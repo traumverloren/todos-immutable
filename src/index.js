@@ -10,7 +10,7 @@ const __REDUX_DEVTOOLS_EXTENSION__ = window.__REDUX_DEVTOOLS_EXTENSION__;
 const store = createStore(todos, __REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__());
 
 // test our store is working and action is being dispatched...
-store.dispatch({ type: 'ADD_TODO', text: 'Feed Wilbur & Dasher'});
+// store.dispatch({ type: 'ADD_TODO', text: 'Feed Wilbur & Dasher'});
 
 ReactDOM.render(
   <Provider store={store}>
