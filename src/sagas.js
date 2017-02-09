@@ -2,7 +2,7 @@ import { takeEvery, call } from 'redux-saga/effects';
 import meow from './cat_meow.wav';
 import scream from './cat_scream.wav';
 
-const playSound = (soundFile) => {
+export const playSound = (soundFile) => {
   const audio = new Audio(soundFile);
   audio.play();
 }
