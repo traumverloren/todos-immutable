@@ -1,4 +1,10 @@
-import { takeEvery } from 'redux-saga/effects'
+import { takeEvery, call } from 'redux-saga/effects';
+import meow from './cat_meow.wav';
+
+const playSound = () => {
+  const audio = new Audio(meow);
+  audio.play();
+}
 
 // console logs on load, so we know that the sagas are wired up right
 export function* helloSaga() {
@@ -6,8 +12,9 @@ export function* helloSaga() {
 }
 
 // performs the add todo task
+// play a 'tink' sound when todo added
 export function* addTodoFlow() {
-  console.log("Yo, the Add todo awesomeness goes HERE")
+  yield call(playSound)
 }
 
 // watches for new todo to be added
