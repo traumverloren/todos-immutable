@@ -1,8 +1,9 @@
 import { takeEvery, call } from 'redux-saga/effects';
 import meow from './cat_meow.wav';
+import scream from './cat_scream.wav';
 
-const playSound = () => {
-  const audio = new Audio(meow);
+const playSound = (soundFile) => {
+  const audio = new Audio(soundFile);
   audio.play();
 }
 
@@ -11,20 +12,24 @@ export function* helloSaga() {
   console.log('Hello Sagas! 😺');
 }
 
-// performs the add todo task
-// play a 'tink' sound when todo added
+// performs the add todo effects task
+// play a 'meow' sound when todo added
 export function* addTodoFlow() {
-  yield call(playSound)
+  console.log('😺 MEEEOOOOOOW 😺');
+  yield call(playSound, meow);
 }
 
-// watches for new todo to be added
-export function* watchAddTodo() {
-  yield takeEvery('ADD_TODO', addTodoFlow)
+// performs the toggle todo efffects task
+// play a 'cat scream' sound when todo added
+export function* toggleTodoFlow() {
+  console.log('😼 MEOOOOARRRRGHHH 😼');
+  yield call(playSound, scream);
 }
 
 export default function* rootSaga() {
   yield [
     helloSaga(),
-    watchAddTodo()
+    yield takeEvery('ADD_TODO', addTodoFlow),
+    yield takeEvery('TOGGLE_TODO', toggleTodoFlow),
   ]
 }
