@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers/index';
 import createSagaMiddleware from 'redux-saga';
-import { helloSaga } from './sagas';
+import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const __REDUX_DEVTOOLS_EXTENSION__ = window.__REDUX_DEVTOOLS_EXTENSION__;
@@ -16,7 +16,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(rootSaga);
 
 // test our store is working and action is being dispatched...
 // store.dispatch({ type: 'ADD_TODO', text: 'Feed Wilbur & Dasher'});
