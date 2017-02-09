@@ -1,22 +1,36 @@
-import test from 'tape';
-import { addTodoFlow, playSound } from './sagas';
+import { addTodoFlow, toggleTodoFlow, playSound } from './sagas';
 import { call } from 'redux-saga/effects';
 import meow from './cat_meow.wav';
+import scream from './cat_scream.wav';
 
-test('addTodoFlow Saga test', (assert) => {
+describe('addTodoFlow saga', () => {
   const gen = addTodoFlow();
 
-  assert.deepEqual(
-    gen.next().value,
-    call(playSound, meow),
-    'addTodoFlow must call playsound with meow audio file'
-  )
+  it('should call playsound with meow audio', () => {
+    expect(gen.next().value)
+      .toEqual(call(playSound, meow))
+  })
 
-  assert.deepEqual(
-  gen.next(),
-  { done: true, value: undefined},
-  'addTodoFlow Saga must be done'
-)
+  it('should finish', () => {
+    expect(gen.next())
+      .toEqual(
+        { done: true, value: undefined }
+      )
+  })
+})
 
-assert.end()
+describe('toggleTodoFlow saga', () => {
+  const gen = toggleTodoFlow();
+
+  it('should call playsound with cat scream audio', () => {
+    expect(gen.next().value)
+      .toEqual(call(playSound, scream))
+  })
+
+  it('should finish', () => {
+    expect(gen.next())
+      .toEqual(
+        { done: true, value: undefined }
+      )
+  })
 })
